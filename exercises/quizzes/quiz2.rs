@@ -70,6 +70,7 @@ mod tests {
 
     use super::my_module::transformer;
 
+    use super::my_module::transformer_iter;
     use super::Command;
 
     #[test]

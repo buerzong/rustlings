@@ -1,4 +1,4 @@
-fn factorial(num: u64) -> u64 {
+fn factorial_for(num: u64) -> u64 {
     // TODO: Complete this function to return the factorial of `num` which is
     // defined as `1 * 2 * 3 * … * num`.
     // https://en.wikipedia.org/wiki/Factorial
@@ -10,6 +10,20 @@ fn factorial(num: u64) -> u64 {
     // - additional variables
     // For an extra challenge, don't use:
     // - recursion
+
+    let mut result = 1;
+
+    for x in 2..=num {
+        result *= x;
+    }
+
+    result
+
+}
+
+fn factorial_fold(num: u64) -> u64 {
+    #[allow(clippy::unnecessary_fold)]
+    (2..=num).fold(1, |acc, x| acc * x)
 }
 
 fn factorial_product(num: u64) -> u64 {
@@ -26,20 +40,28 @@ mod tests {
 
     #[test]
     fn factorial_of_0() {
-        assert_eq!(factorial(0), 1);
+        assert_eq!(factorial_for(0), 1);
+        assert_eq!(factorial_fold(0), 1);
+        assert_eq!(factorial_product(0), 1);
     }
 
     #[test]
     fn factorial_of_1() {
-        assert_eq!(factorial(1), 1);
+        assert_eq!(factorial_for(1), 1);
+        assert_eq!(factorial_fold(1), 1);
+        assert_eq!(factorial_product(1), 1);
     }
     #[test]
     fn factorial_of_2() {
-        assert_eq!(factorial(2), 2);
+        assert_eq!(factorial_for(2), 2);
+        assert_eq!(factorial_fold(2), 2);
+        assert_eq!(factorial_product(2), 2);
     }
 
     #[test]
     fn factorial_of_4() {
-        assert_eq!(factorial(4), 24);
+        assert_eq!(factorial_for(4), 24);
+        assert_eq!(factorial_fold(4), 24);
+        assert_eq!(factorial_product(4), 24);
     }
 }

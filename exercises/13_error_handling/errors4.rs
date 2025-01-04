@@ -15,6 +15,7 @@ impl PositiveNonzeroInteger {
             Ordering::Less => Err(CreationError::Negative),
             Ordering::Equal => Err(CreationError::Zero),
             Ordering::Greater => Ok(Self(value as u64)),
+        }
     }
 }
 
