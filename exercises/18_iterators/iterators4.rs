@@ -12,6 +12,10 @@ fn factorial(num: u64) -> u64 {
     // - recursion
 }
 
+fn factorial_product(num: u64) -> u64 {
+    (2..=num).product()
+}
+
 fn main() {
     // You can optionally experiment here.
 }
